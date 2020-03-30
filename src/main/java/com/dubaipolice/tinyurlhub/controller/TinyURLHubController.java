@@ -11,7 +11,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.datastax.driver.core.utils.UUIDs;
@@ -44,9 +43,10 @@ public class TinyURLHubController {
 	}
 
 	@PostMapping("/data")
-	public ResponseEntity<Test> createTutorial(@RequestBody Test data) {
+	public ResponseEntity<Test> createData(@RequestBody Test data) {
 		try {
-			Test _tutorial = tutorialRepository.save(new Test(UUIDs.timeBased(), data.getName(), data.getDescription()));
+			Test _tutorial = tutorialRepository
+					.save(new Test(UUIDs.timeBased(), data.getName(), data.getDescription()));
 			return new ResponseEntity<>(_tutorial, HttpStatus.CREATED);
 		} catch (Exception e) {
 			return new ResponseEntity<>(null, HttpStatus.EXPECTATION_FAILED);

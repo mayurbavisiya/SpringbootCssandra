@@ -4,6 +4,7 @@ public class URLAliasMappingDTO {
 	private int expirytime;
 	private String realurl;
 	private int urlAccessLimit;
+	private String alias;
 
 	public int getExpirytime() {
 		return expirytime;
@@ -27,6 +28,14 @@ public class URLAliasMappingDTO {
 
 	public void setUrlAccessLimit(int urlAccessLimit) {
 		this.urlAccessLimit = urlAccessLimit;
+	}
+
+	public String getAlias() {
+		return alias;
+	}
+
+	public void setAlias(String alias) {
+		this.alias = alias;
 	}
 
 }

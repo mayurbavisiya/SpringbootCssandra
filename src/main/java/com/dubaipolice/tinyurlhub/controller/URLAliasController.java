@@ -17,7 +17,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.datastax.driver.core.utils.UUIDs;
-import com.dubaipolice.tinyurlhub.model.CreateAliasDTO;
+import com.dubaipolice.tinyurlhub.model.URLAliasMappingDTO;
 import com.dubaipolice.tinyurlhub.model.URLAliasMappingEntity;
 import com.dubaipolice.tinyurlhub.repository.URLAliasRepository;
 import com.dubaipolice.tinyurlhub.util.Utils;
@@ -25,15 +25,14 @@ import com.dubaipolice.tinyurlhub.util.Utils;
 @RestController
 @RequestMapping("/tinyurl")
 public class URLAliasController {
-	
-	private static Logger logger = LoggerFactory.getLogger(URLAliasController.class);
 
+	private static Logger logger = LoggerFactory.getLogger(URLAliasController.class);
 
 	@Autowired
 	URLAliasRepository repository;
 
 	@PostMapping("/alias")
-	public ResponseEntity<URLAliasMappingEntity> createAlias(@RequestBody CreateAliasDTO dto) {
+	public ResponseEntity<URLAliasMappingEntity> createAlias(@RequestBody URLAliasMappingDTO dto) {
 		try {
 			List<URLAliasMappingEntity> list = new ArrayList<URLAliasMappingEntity>();
 			// Check If Real URL is already exist

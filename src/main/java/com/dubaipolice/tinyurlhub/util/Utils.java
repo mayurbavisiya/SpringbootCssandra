@@ -43,7 +43,7 @@ public class Utils {
 		long time = (uuidDate.timestamp() - NUM_100NS_INTERVALS_SINCE_UUID_EPOCH) / 10000;
 		Date linkedCreationDate = new Date(time);
 		LocalDateTime localDateTime = linkedCreationDate.toInstant().atZone(ZoneId.systemDefault()).toLocalDateTime();
-		localDateTime = localDateTime.plusYears(0).plusMonths(0).plusDays(expiryDays);
+		localDateTime = localDateTime.plusYears(0).plusMonths(0).plusDays(0).plusMinutes(expiryDays);
 		linkedCreationDate = Date.from(localDateTime.atZone(ZoneId.systemDefault()).toInstant());
 
 		Date sysDate = new Date();
